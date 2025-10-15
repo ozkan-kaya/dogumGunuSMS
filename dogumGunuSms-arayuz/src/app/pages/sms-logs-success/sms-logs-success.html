@@ -1,0 +1,13 @@
+<app-page-header backgroundStyle="linear-gradient(135deg, #28a745 0%, #20c997 100%)">
+  <h2><i class="fas fa-check-circle me-2"></i>Başarılı SMS Logları</h2>
+  <p class="mb-0">Başarıyla gönderilen tüm SMS mesajlarının listesi</p>
+</app-page-header>
+
+<app-data-table
+  title="Başarılı SMS Listesi"
+  [columns]="successLogColumns"
+  [data]="successfulLogs"
+  [isLoading]="isLoading"
+  [badgeText]="successfulLogs.length + ' Başarılı SMS'"
+  badgeClass="bg-success">
+</app-data-table>

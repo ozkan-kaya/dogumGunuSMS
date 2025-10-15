@@ -1,0 +1,62 @@
+<div class="card table-card mx-5">
+  <div class="card-header d-flex justify-content-between align-items-center">
+  </div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          @for (column of columns; track column.key) {
+            <th (click)="onSort(column.key)">
+              @if (column.icon) { <i class="{{ column.icon }} me-1"></i> }
+              {{ column.label }}
+
+              <span class="sort-indicator">
+          @if (sortKey === column.key) {
+            <i class="fas" [ngClass]="{'fa-arrow-up': sortDirection === 'asc', 'fa-arrow-down': sortDirection === 'desc'}"></i>
+          }
+        </span>
+            </th>
+          }
+        </tr>
+        </thead>
+        <tbody>
+          @if (isLoading) {
+            <tr>
+              <td [colSpan]="columns.length" class="text-center p-4">
+                <div class="spinner-border spinner-border-sm" role="status"></div>
+                <span class="ms-2">Veriler Yükleniyor...</span>
+              </td>
+            </tr>
+          }
+
+          @for (item of sortedData; track item.id) {
+            <tr>
+              @for (column of columns; track column.key) {
+                <td>
+                  @if (column.isDate) {
+                    @if (column.key === 'birthday') {
+                      {{ item[column.key] | date:'dd.MM.yyyy' }}
+                    } @else {
+                      {{ item[column.key] | date:'dd.MM.yyyy HH:mm:ss' }}
+                    }
+                  } @else {
+                    {{ item[column.key] }}
+                  }
+                </td>
+              }
+            </tr>
+          } @empty {
+            @if (!isLoading) {
+              <tr>
+                <td [colSpan]="columns.length" class="text-center text-muted p-4">
+                  Bu tablo için kayıt bulunmuyor.
+                </td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

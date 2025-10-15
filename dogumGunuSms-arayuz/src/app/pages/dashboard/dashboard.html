@@ -1,0 +1,75 @@
+<app-page-header backgroundStyle="linear-gradient(135deg, #13547a 0%, #80d0c7 100%)">
+  <h2><i class="fas fa-tachometer-alt me-2"></i>Kontrol Paneli</h2>
+  <p class="mb-0">Doğum Günü SMS Sistemine Hoş Geldiniz!</p>
+</app-page-header>
+
+<div class="row mx-5">
+  <div class="col-md-3 my-3">
+    <app-stats-card routerLink="/employees">
+      <i class="fas fa-users stats-icon text-primary"></i>
+      <h5 class="card-title">Toplam Personel</h5>
+      <h3 class="text-primary">{{ stats.total_employees }}</h3>
+    </app-stats-card>
+  </div>
+
+  <div class="col-md-3 my-3">
+    <app-stats-card routerLink="/sms-logs/success">
+      <i class="fas fa-sms stats-icon text-success"></i>
+      <h5 class="card-title">Gönderilen SMS</h5>
+      <h3 class="text-success">{{ stats.success_sms }}</h3>
+    </app-stats-card>
+  </div>
+
+  <div class="col-md-3 my-3">
+    <app-stats-card routerLink="/sms-logs/failed">
+      <i class="fas fa-exclamation-triangle stats-icon text-danger"></i>
+      <h5 class="card-title">Başarısız SMS</h5>
+      <h3 class="text-danger">{{ stats.failed_sms }}</h3>
+    </app-stats-card>
+  </div>
+
+  <div class="col-md-3 my-3">
+    <app-stats-card routerLink="/settings">
+      <i class="fas fa-cog stats-icon text-secondary"></i>
+      <h5 class="card-title">Sistem Ayarları</h5>
+    </app-stats-card>
+  </div>
+</div>
+
+<div class="row w-50 mt-lg-5 m-auto">
+  <div class="col-12">
+
+    @if (!hasError) {
+      <div class="card">
+        <div class="card-header">
+          <h5 class="mb-0"><i class="fas fa-info-circle me-2"></i>Sistem Durumu</h5>
+        </div>
+        <div class="card-body text-center">
+          <i class="fas fa-cogs fa-3x text-muted mb-3"></i>
+          <h4>Sistem Hazır</h4>
+          <p class="text-muted">Yönetim paneli başarıyla kuruldu ve veriler sunucudan çekiliyor.</p>
+          <div class="alert alert-info mt-3">
+            <i class="fas fa-lightbulb me-2"></i>
+            Bu arayüz, personel doğum günü SMS sistemini yönetmek için tasarlanmıştır.
+          </div>
+        </div>
+      </div>
+    } @else {
+      <div class="card border-danger">
+        <div class="card-header bg-danger text-white">
+          <h5 class="mb-0"><i class="fas fa-exclamation-triangle me-2"></i>Sistem Durumu: Hata</h5>
+        </div>
+        <div class="card-body text-center">
+          <i class="fas fa-server fa-3x text-danger mb-3"></i>
+          <h4>Bağlantı Hatası</h4>
+          <p class="text-muted">Backend sunucusuna bağlanılamadı veya veriler alınırken bir sorun oluştu.</p>
+          <div class="alert alert-danger mt-3">
+            <i class="fas fa-plug me-2"></i>
+            <strong>Kontrol Edin:</strong> Lütfen backend sunucusunun çalıştığından ve veritabanı bağlantısının doğru olduğundan emin olun.
+          </div>
+        </div>
+      </div>
+    }
+
+  </div>
+</div>

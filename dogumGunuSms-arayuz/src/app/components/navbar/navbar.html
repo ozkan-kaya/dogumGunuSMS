@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container">
+    <a class="navbar-brand fw-bold" routerLink="/dashboard">
+      <i class="fas fa-birthday-cake me-2"></i>
+      Doğum Günü SMS Sistemi
+    </a>
+
+    <div class="navbar-nav ms-auto">
+      <a
+        class="nav-link"
+        routerLink="/dashboard"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+      >
+        <i class="fas fa-home me-1"></i>Ana Sayfa
+      </a>
+      <a class="nav-link" routerLink="/employees" routerLinkActive="active">
+        <i class="fas fa-users me-1"></i>Personel
+      </a>
+      <a class="nav-link" routerLink="/sms-logs/success" routerLinkActive="active">
+        <i class="fas fa-check-circle me-1"></i>Başarılı SMS
+      </a>
+      <a class="nav-link" routerLink="/sms-logs/failed" routerLinkActive="active">
+        <i class="fas fa-exclamation-triangle me-1"></i>Başarısız SMS
+      </a>
+      <a class="nav-link" routerLink="/settings" routerLinkActive="active">
+        <i class="fas fa-cog me-1"></i>Ayarlar
+      </a>
+    </div>
+  </div>
+</nav>

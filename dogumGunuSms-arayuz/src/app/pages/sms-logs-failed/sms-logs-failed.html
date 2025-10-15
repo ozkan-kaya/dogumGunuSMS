@@ -1,0 +1,13 @@
+<app-page-header backgroundStyle="linear-gradient(135deg, #dc3545 0%, #c82333 100%)">
+  <h2><i class="fas fa-exclamation-triangle me-2"></i>Başarısız SMS Logları</h2>
+  <p class="mb-0">Gönderilemeyen SMS'lerin listesi ve hata detayları</p>
+</app-page-header>
+
+<app-data-table
+  title="Başarısız SMS Listesi"
+  [columns]="failedLogColumns"
+  [data]="failedLogs"
+  [isLoading]="isLoading"
+  [badgeText]="failedLogs.length + ' Başarısız SMS'"
+  badgeClass="bg-danger">
+</app-data-table>

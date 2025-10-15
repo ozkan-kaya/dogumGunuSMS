@@ -1,0 +1,13 @@
+thead th {
+  cursor: pointer;
+  user-select: none;
+}
+
+thead th:hover {
+  background-color: #f8f9fa;
+}
+
+.sort-indicator {
+  display: inline-block;
+  width: 1em;
+}

@@ -1,0 +1,33 @@
+.navbar {
+  background: linear-gradient(135deg, #343a40 0%, #1c1e22 100%);
+}
+
+.nav-link {
+  padding: 0.5rem 1rem;
+  border-radius: 12px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  font-weight: 500;
+  margin: 0 3px;
+}
+
+.nav-link:not(.active):hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+}
+
+.nav-link.active {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.navbar-brand {
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #dadada;
+}
+
+.navbar-brand:active {
+  color: #ffffff;
+}

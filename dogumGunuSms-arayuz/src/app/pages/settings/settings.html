@@ -1,0 +1,60 @@
+<app-page-header backgroundStyle="linear-gradient(135deg, #adb5bd 0%, #6c757d 100%)">
+  <h2><i class="fas fa-cog me-2"></i>Ayarlar</h2>
+  <p class="mb-0">SMS Proxy/Web Service ayarlarınızı yapılandırabilirsiniz</p>
+</app-page-header>
+
+<div class="card mx-5">
+  <div class="card-body">
+    <form #settingsForm="ngForm" (ngSubmit)="saveSettings()">
+
+      <h5 class="card-title">SMS API Ayarları</h5>
+      <hr>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Kullanıcı Adı</label>
+          <input type="text" class="form-control" [(ngModel)]="settings.SMS_USERNAME" name="sms_username" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Şifre</label>
+          <input type="password" class="form-control" [(ngModel)]="settings.SMS_PASSWORD" name="sms_password" placeholder="Değiştirmek için yeni şifreyi girin" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Kullanıcı Kodu</label>
+          <input type="text" class="form-control" [(ngModel)]="settings.SMS_USERCODE" name="sms_usercode" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Hesap ID</label>
+          <input type="text" class="form-control" [(ngModel)]="settings.SMS_ACCOUNTID" name="sms_account_id" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Gönderici Adı (Originator)</label>
+          <input type="text" class="form-control" [(ngModel)]="settings.SMS_ORIGINATOR" name="sms_originator" required>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label class="form-label">API URL</label>
+          <input type="text" class="form-control" [(ngModel)]="settings.SMS_URL" name="sms_url" required>
+        </div>
+      </div>
+
+      <h5 class="card-title mt-4">Zamanlama Ayarları</h5>
+      <hr>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label class="form-label">Günlük Gönderim Saati (HH:mm)</label>
+          <input type="time" class="form-control" [(ngModel)]="settings.SCHEDULE_TIME" name="schedule_time" required>
+          <div class="form-text">Doğum günü mesajları her gün bu saatte gönderilecektir.</div>
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary mt-3" [disabled]="settingsForm.invalid">
+        <i class="fas fa-save me-2"></i>Ayarları Kaydet
+      </button>
+    </form>
+
+    @if(message){
+      <div class="alert mt-4" [ngClass]="isError ? 'alert-danger' : 'alert-success'">
+        {{ message }}
+      </div>
+    }
+  </div>
+</div>
